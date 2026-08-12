@@ -34,7 +34,7 @@
 	"scripts": {
 		"audit:fix": "npm audit fix --min-release-age=0",
 		"build": "npm run clean && npm run build:lib",
-		"build:lib": "tsc-leda generate",
+		"build:lib": "npm run gen:types && tsc-leda generate",
 		"build:package": "tsc-leda update-package && npm run lint:package",
 		"ci:lint": "zizmor .",
 		"ci:lint:fix": "zizmor . --fix=all",
