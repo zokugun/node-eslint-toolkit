@@ -1,7 +1,7 @@
 {
 	"name": "@zokugun/eslint-toolkit",
 	"description": "Build ESLint configs with some configuration types and pre-configured common rules.",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": {
 		"name": "Baptiste Augrain",
 		"email": "daiyam@zokugun.org"
