@@ -1,6 +1,6 @@
 import { RuleOptions as CommonsRuleOptions } from '../typegens/commons.js';
 
-export const CommonsRules: Partial<CommonsRuleOptions> = {
+export const commonsRules: Partial<CommonsRuleOptions> = {
 	'accessor-pairs': [
 		'error',
 	],
