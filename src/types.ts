@@ -1,6 +1,12 @@
 import { Linter } from 'eslint';
 
-export type Configurator = (resolve: <T>(name: string) => T | undefined, register: (name: string, value: unknown) => void) => Linter.Config[] | Linter.Config | undefined;
+export type Resolver = {
+	<T>(name: string, defaultValue: T[]): T[];
+	<T>(name: string, defaultValue: T): | T;
+	<T>(name: string, defaultValue?: undefined): T | undefined;
+};
+
+export type Configurator = (resolve: Resolver, register: (name: string, value: unknown) => void) => Linter.Config[] | Linter.Config | undefined;
 
 export type EditorConfigOptions = {
 	charset?: 'latin1' | 'utf-8' | 'utf-8-bom' | 'utf-16be' | 'utf-16le' | 'unset';
