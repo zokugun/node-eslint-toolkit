@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.3.0 | 2026-08-18
+- rename `RuleOptions` as `CommonsRuleOptions`
+- add `DefaultOptions`
+
 ## v0.2.1 | 2026-08-18
 - expose `register` type (`Registrator`)
 - fix `resolve` type (`Resolver`) with empty array was default value
