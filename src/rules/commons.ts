@@ -1,4 +1,4 @@
-import { RuleOptions as CommonsRuleOptions } from '../typegens/commons.js';
+import { CommonsRuleOptions } from '../typegens/commons.js';
 
 export const commonsRules: Partial<CommonsRuleOptions> = {
 	'accessor-pairs': [

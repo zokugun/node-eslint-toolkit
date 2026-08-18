@@ -1,4 +1,4 @@
-export type { RuleOptions as CommonsRuleOptions } from './typegens/commons.js';
+export type { CommonsRuleOptions } from './typegens/commons.js';
 export type { Configurator, EditorConfigOptions, OptionFiles, OptionIgnores, OptionOverridesFiles, OptionOverridesIgnores, OptionOverridesRules, OptionRules, Registrator, Resolver } from './types.js';
 
 export { commonsRules } from './rules/commons.js';

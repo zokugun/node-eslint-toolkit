@@ -1,4 +1,10 @@
-import {builtinRules} from 'eslint/use-at-your-own-risk';
-import { buildTypeGen } from '@zokugun/eslint-typegen-plus'
+import { buildTypeGen } from '@zokugun/eslint-typegen-plus';
+import { builtinRules } from 'eslint/use-at-your-own-risk';
 
-await buildTypeGen('', { rules: Object.fromEntries(builtinRules.entries()) }, 'commons.d.ts', { overwrite: true });
+await buildTypeGen({
+	name: '',
+	fileName: 'commons.d.ts',
+	typeName: 'CommonsRuleOptions',
+	plugin: { rules: Object.fromEntries(builtinRules.entries()) },
+	overwrite: true,
+});
