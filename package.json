@@ -38,7 +38,7 @@
 		"build:package": "tsc-leda update-package && npm run lint:package",
 		"ci:lint": "zizmor .",
 		"ci:lint:fix": "zizmor . --fix=all",
-		"clean": "rimraf lib; rimraf .src",
+		"clean": "rimraf .src lib",
 		"compile:src": "tsc -p src",
 		"gen:types": "node ./scripts/typegen.ts",
 		"lint": "eslint",

@@ -40,7 +40,7 @@ type Options = OptionRules<RuleOptions> & OptionFiles & OptionIgnores & OptionOv
 
 function regexp(options: Options = {}): Configurator {
 	return (resolve) => {
-		const sources = resolve<string[]>('javascript.sources') ?? []
+		const sources = resolve<string[]>('javascript/sources') ?? []
 
 		const files = options.overrides?.files ?? [
 			...sources,
@@ -69,7 +69,7 @@ API reference
 -------------
 
 ```typescript
-type Configurator = (resolve: <T>(name: string) => T | undefined, register: (name: string, value: unknown) => void) => Linter.Config[] | Linter.Config | undefined;
+type Configurator = (resolve: Resolver, register: Registrator) => Linter.Config[] | Linter.Config | undefined;
 type EditorConfigOptions = {
     charset?: 'latin1' | 'utf-8' | 'utf-8-bom' | 'utf-16be' | 'utf-16le' | 'unset';
     end_of_line?: 'lf' | 'crlf' | 'unset';
@@ -103,11 +103,19 @@ type OptionOverridesRules<R> = {
 type OptionRules<R> = {
     rules?: Partial<R>;
 };
+type Registrator = (name: string, value: unknown) => void;
+type Resolver = {
+	(name: string, defaultValue: []): unknown[];
+	<T>(name: string, defaultValue: T[]): T[];
+	<T>(name: string, defaultValue: T): | T;
+	<T>(name: string, defaultValue?: undefined): T | undefined;
+};
+
 interface CommonsRuleOptions {
     'accessor-pairs'?: Linter.RuleEntry<AccessorPairs>
     ...
 }
-const CommonsRules: Partial<CommonsRuleOptions>
+const commonsRules: Partial<CommonsRuleOptions>
 ```
 
 Contributions
