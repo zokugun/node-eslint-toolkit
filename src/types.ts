@@ -1,6 +1,10 @@
 import { Linter } from 'eslint';
 
+export type BaseOptions<R> = OptionFiles & OptionIgnores & OptionRules<R>;
+
 export type Configurator = (resolve: Resolver, register: Registrator) => Linter.Config[] | Linter.Config | undefined;
+
+export type DefaultOptions<R> = EmbeddedOptions<OverridesOptions<BaseOptions<R>>>;
 
 export type EditorConfigOptions = {
 	charset?: 'latin1' | 'utf-8' | 'utf-8-bom' | 'utf-16be' | 'utf-16le' | 'unset';
@@ -11,6 +15,8 @@ export type EditorConfigOptions = {
 	tab_width?: number | 'unset';
 	trim_trailing_whitespace?: 'true' | 'false' | 'unset';
 };
+
+export type EmbeddedOptions<T> = T & { embedded?: T };
 
 export type OptionFiles = {
 	files?: string[];
@@ -41,6 +47,8 @@ export type OptionOverridesRules<R> = {
 export type OptionRules<R> = {
 	rules?: Partial<R>;
 };
+
+export type OverridesOptions<T> = T & { overrides?: T };
 
 export type Registrator = (name: string, value: unknown) => void;
 
